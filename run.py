@@ -56,8 +56,16 @@ class MyMainWindow(QtWidgets.QMainWindow,Ui_MainWindow):
             R4 = float(self.input_R_4.text())
         print(V,R1,R2,R3,R4)
 
+        if self.comboBox.currentText()=="电路1":
+            Req = (R4 * (((R1 * R3) / (R1 + R3)) + R2)) / (R2 + R4 + ((R1 * R3) / (R1 + R3)))
+        else:
+            ra=R1*R3/(R1+R2+R3)
+            rb=R2*R3/(R1+R2+R3)
+            rc=R1*R2/(R1+R2+R3)
+            Req=ra+(rc+R4)*rb/(rc+R4+rb)
+        I = V / Req
 
-
+        self.output_I.setText("{:.3f} ".format(I))
 
 if __name__=='__main__':
     application = QtWidgets.QApplication(sys.argv)
