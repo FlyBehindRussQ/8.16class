@@ -3,7 +3,7 @@ from PyQt5 import QtWidgets,QtGui,QtCore
 from GUI import Ui_MainWindow
 
 os.chdir(os.path.split(os.path.realpath(__file__))[0])
-
+QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
 
 class MyMainWindow(QtWidgets.QMainWindow,Ui_MainWindow):    
     def __init__(self,parent=None) -> None:
