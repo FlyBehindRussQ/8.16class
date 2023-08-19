@@ -14,7 +14,7 @@ class TestCalculationLogic(unittest.TestCase):
 
     def test_calculation_model_1(self):
         self.window.model = 0  # 设置模型为 0（模型1）
-        self.window.inputs[0].setText("10")  # 设置电压
+        self.window.inputs[0].setText("10")  # 设置电压 V
         self.window.inputs[1].setText("4")   # 设置电阻 R1
         self.window.inputs[2].setText("5")   # 设置电阻 R2
         self.window.inputs[3].setText("3")   # 设置电阻 R3
