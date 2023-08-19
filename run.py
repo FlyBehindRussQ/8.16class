@@ -66,7 +66,7 @@ class MyMainWindow(QtWidgets.QMainWindow,Ui_MainWindow):
         self.model_2.clicked.connect(lambda: self.setPicture(1)) # 点击选择模型2
         self.calculate.clicked.connect(lambda: self.calculation(self.model)) # 点击进行计算
         self.inputs = [self.input_V,self.input_R_1,self.input_R_2,self.input_R_3,self.input_R_4] 
-        self.factors = [1,1,1,1,1]
+        self.factors = [0,0,0,0,0] # 初始输入的电压和电阻为0
         for i in range(0,5):
             self.inputs[i].setText(f'''{self.factors[i]}''') # 定义输入标签
         
@@ -76,7 +76,13 @@ class MyMainWindow(QtWidgets.QMainWindow,Ui_MainWindow):
         # 定义用户的输入，分别为电压和四个电阻 
         for i in range(0,5):
             if self.inputs[i].text()!='':
-                self.factors[i] = float(self.inputs[i].text())
+                input_text = self.inputs[i].text()
+                # 检查是否输入有效数字
+                if not input_text.isdigit():
+                    QtWidgets.QMessageBox.warning(self,"error",f"请输入有效数字")
+                    return
+                self.factors[i] = float(input_text)
+                
         V, R1, R2, R3, R4 = self.factors
 
         # 选择电路模型，分别计算电流
