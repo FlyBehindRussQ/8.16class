@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
+# 使用QtDesigner自动生成的界面
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -225,3 +225,4 @@ class Ui_MainWindow(object):
         self.slogan.setText(_translate("MainWindow", "请选择你的模型！"))
         self.goback.setText(_translate("MainWindow", "↩ 返回"))
         self.current.setText(_translate("MainWindow", "I"))
+
