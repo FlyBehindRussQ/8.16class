@@ -1,7 +1,8 @@
 import unittest
 from PyQt5 import QtWidgets
-from circuit import MyMainWindow  # 替换成你的模块名
+from circuit import MyMainWindow  
 
+# 创建测试类
 class TestCalculationLogic(unittest.TestCase):
 
     def setUp(self):
