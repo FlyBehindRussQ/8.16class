@@ -77,9 +77,14 @@ class MyMainWindow(QtWidgets.QMainWindow,Ui_MainWindow):
         for i in range(0,5):
             if self.inputs[i].text()!='':
                 input_text = self.inputs[i].text()
-                # 检查是否输入有效数字
+                # 检查是否输入数字
                 if not input_text.isdigit():
                     QtWidgets.QMessageBox.warning(self,"error",f"请输入有效数字")
+                    return
+                
+                # 检查输入数字是否为0
+                if input_text == "0":
+                    QtWidgets.QMessageBox.warning(self,"error",f"输入不能为0")
                     return
                 self.factors[i] = float(input_text)
                 
